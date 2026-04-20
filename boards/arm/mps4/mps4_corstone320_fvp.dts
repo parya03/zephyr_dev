@@ -6,7 +6,8 @@
 
 /dts-v1/;
 
-#include <arm/armv8.1-m.dtsi>
+// #include <arm/armv8.1-m.dtsi>
+#include <arm64/armv9-a.dtsi>
 #include <zephyr/dt-bindings/i2c/i2c.h>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <mem.h>
@@ -29,32 +30,37 @@
 
 		cpu@0 {
 			device_type = "cpu";
-			compatible = "arm,cortex-m85";
+			// compatible = "arm,cortex-m85";
+			compatible = "arm,cortex-a320";
 			reg = <0>;
 			#address-cells = <1>;
 			#size-cells = <1>;
+		};
 
-			mpu: mpu@e000ed90 {
-				compatible = "arm,armv8.1m-mpu";
-				reg = <0xe000ed90 0x40>;
-			};
+		cpu@1 {
+			device_type = "cpu";
+			// compatible = "arm,cortex-m85";
+			compatible = "arm,cortex-a320";
+			reg = <0>;
+			#address-cells = <1>;
+			#size-cells = <1>;
 		};
 	};
 
-	ethosu {
-		#address-cells = <1>;
-		#size-cells = <0>;
-		interrupt-parent = <&nvic>;
+	// ethosu {
+	// 	#address-cells = <1>;
+	// 	#size-cells = <0>;
+	// 	interrupt-parent = <&nvic>;
 
-		ethosu0: ethosu@50004000 {
-			compatible = "arm,ethos-u";
-			reg = <0x50004000>;
-			interrupts = <16 3>;
-			secure-enable;
-			privilege-enable;
-			status = "okay";
-		};
-	};
+	// 	ethosu0: ethosu@50004000 {
+	// 		compatible = "arm,ethos-u";
+	// 		reg = <0x50004000>;
+	// 		interrupts = <16 3>;
+	// 		secure-enable;
+	// 		privilege-enable;
+	// 		status = "okay";
+	// 	};
+	// };
 
 	/* We utilize the secure addresses, if you subtract 0x10000000
 	 * you'll get the non-secure alias

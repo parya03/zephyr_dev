@@ -6,10 +6,12 @@
 
 /* /dts-v1/; */
 
-#include <arm/armv8.1-m.dtsi>
+// #include <arm/armv8.1-m.dtsi>
+#include <arm64/armv9-a.dtsi>
 #include <zephyr/dt-bindings/i2c/i2c.h>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <zephyr/dt-bindings/memory-attr/memory-attr-arm.h>
+#include <zephyr/dt-bindings/interrupt-controller/arm-gic.h>
 #include <mem.h>
 
 / {
@@ -99,8 +101,8 @@
 	};
 };
 
-&nvic {
-	arm,num-irq-priority-bits = <3>;
-};
+// &nvic {
+// 	arm,num-irq-priority-bits = <3>;
+// };
 
 #include "mps4-pinctrl.dtsi"

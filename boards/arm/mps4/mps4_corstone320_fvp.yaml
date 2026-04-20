@@ -4,7 +4,7 @@
 identifier: mps4/corstone320/fvp
 name: Arm MPS4-Corstone320-FVP
 type: mcu
-arch: arm
+arch: arm64
 ram: 2048
 flash: 4096
 simulation:
